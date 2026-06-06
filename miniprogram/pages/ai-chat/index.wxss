@@ -1,0 +1,213 @@
+.page-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: var(--color-background);
+}
+
+/* 消息列表 */
+.chat-list {
+  flex: 1;
+  overflow: hidden;
+}
+
+.chat-messages {
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+/* 欢迎消息 */
+.welcome-message {
+  text-align: center;
+  padding: var(--spacing-xl) 0;
+}
+
+.welcome-title {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  display: block;
+  margin-bottom: var(--spacing-sm);
+}
+
+.welcome-desc {
+  font-size: 28rpx;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+/* 消息行 */
+.message-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.message-row.user {
+  align-items: flex-end;
+}
+
+.message-row.assistant {
+  align-items: flex-start;
+}
+
+/* 消息气泡 */
+.message-bubble {
+  max-width: 75%;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-lg);
+  word-wrap: break-word;
+}
+
+.message-row.assistant .message-bubble {
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+  border-bottom-left-radius: var(--radius-sm);
+}
+
+.message-row.user .message-bubble {
+  background: var(--color-primary);
+  color: var(--color-surface);
+  border-bottom-right-radius: var(--radius-sm);
+}
+
+.message-content {
+  font-size: 30rpx;
+  line-height: 1.5;
+}
+
+/* 引用条 */
+.message-reference {
+  background: var(--color-tag-bg);
+  border-radius: var(--radius-sm);
+  padding: 8rpx 12rpx;
+  margin-bottom: var(--spacing-xs);
+}
+
+.reference-text {
+  font-size: 22rpx;
+  color: var(--color-text-secondary);
+}
+
+/* 时间戳 */
+.message-time {
+  font-size: 20rpx;
+  color: var(--color-text-disabled);
+  margin-top: 4rpx;
+}
+
+/* 思考中 */
+.thinking {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.thinking-dots {
+  display: flex;
+  gap: 8rpx;
+}
+
+.dot {
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 50%;
+  background: var(--color-ai-thinking);
+  animation: pulse 1s ease-in-out infinite;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+.thinking-text {
+  font-size: 26rpx;
+  color: var(--color-text-secondary);
+}
+
+/* 快捷标签栏 */
+.quick-tags-bar {
+  background: var(--color-surface);
+  border-top: 1rpx solid var(--color-border);
+  padding: var(--spacing-sm) var(--spacing-md);
+}
+
+.quick-tags {
+  display: flex;
+  gap: var(--spacing-sm);
+  white-space: nowrap;
+}
+
+.quick-tag {
+  background: var(--color-tag-bg);
+  color: var(--color-tag-text);
+  font-size: 26rpx;
+  padding: 12rpx 28rpx;
+  border-radius: var(--radius-pill);
+  flex-shrink: 0;
+}
+
+.quick-tag:active {
+  background: var(--color-border);
+}
+
+/* 输入栏 */
+.input-bar {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--color-surface);
+  border-top: 1rpx solid var(--color-border);
+}
+
+.input-wrapper {
+  flex: 1;
+  background: var(--color-input-bg);
+  border-radius: var(--radius-pill);
+  padding: 16rpx 24rpx;
+  max-height: 240rpx;
+}
+
+.message-input {
+  width: 100%;
+  font-size: 30rpx;
+  line-height: 1.4;
+  max-height: 200rpx;
+}
+
+.send-btn {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+  background: var(--color-text-disabled);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 200ms ease;
+}
+
+.send-btn.active {
+  background: var(--color-primary);
+}
+
+.send-btn:active {
+  transform: scale(0.95);
+}
+
+.send-icon {
+  color: var(--color-surface);
+  font-size: 32rpx;
+  font-weight: 700;
+}

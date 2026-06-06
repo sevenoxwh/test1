@@ -1,0 +1,19 @@
+<view class="page-container">
+  <view class="avatar-section">
+    <image class="avatar" src="{{userInfo.avatarUrl || '/images/icons/avatar.png'}}" mode="aspectFill" bindtap="chooseAvatar"/>
+    <text class="avatar-hint">点击更换头像</text>
+  </view>
+
+  <view class="form-section">
+    <view class="form-item">
+      <text class="form-label">昵称</text>
+      <input class="form-input" placeholder="请输入昵称" value="{{userInfo.nickName || ''}}" bindblur="onNickNameBlur"/>
+    </view>
+    <view class="form-item">
+      <text class="form-label">个性签名</text>
+      <input class="form-input" placeholder="一句话介绍自己" value="{{userInfo.bio || ''}}" bindblur="onBioBlur"/>
+    </view>
+  </view>
+
+  <view class="save-btn {{isSaving ? 'disabled' : ''}}" bindtap="saveProfile">保存</view>
+</view>

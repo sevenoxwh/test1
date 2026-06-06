@@ -1,0 +1,66 @@
+<view class="page-container">
+  <!-- 日历区域 -->
+  <view class="calendar-card card">
+    <view class="calendar-header">
+      <text class="calendar-title">{{currentYear}}年 {{currentMonth}}月</text>
+      <view class="calendar-nav">
+        <text class="nav-btn" bindtap="prevMonth">‹</text>
+        <text class="nav-btn" bindtap="nextMonth">›</text>
+      </view>
+    </view>
+    <view class="weekdays">
+      <text wx:for="{{weekdays}}" wx:key="*this" class="weekday">{{item}}</text>
+    </view>
+    <view class="days-grid">
+      <view 
+        wx:for="{{days}}" 
+        wx:key="date"
+        class="day-cell {{item.isToday ? 'today' : ''}} {{item.isCurrentMonth ? '' : 'other-month'}}"
+        bindtap="onDayTap"
+        data-date="{{item.date}}"
+      >
+        <text class="day-number">{{item.day}}</text>
+        <view wx:if="{{item.hasCheckin}}" class="checkin-dot"></view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 连击激励区 -->
+  <view class="streak-section">
+    <text class="streak-label">当前连击</text>
+    <view class="streak-number">
+      <text class="streak-value">{{streak.current}}</text>
+      <text class="streak-unit">天</text>
+    </view>
+    <view class="streak-stats">
+      <text class="stat-item">本月已打卡 {{monthCheckinCount}} 次</text>
+      <text class="stat-item">最长纪录 {{streak.longest}} 天</text>
+    </view>
+  </view>
+
+  <!-- 打卡按钮 -->
+  <view class="checkin-btn-wrapper">
+    <view 
+      class="checkin-btn {{todayCheckin ? 'checked' : ''}}"
+      bindtap="goToCheckin"
+    >
+      <text>{{todayCheckin ? '今日已打卡' : '今日打卡'}}</text>
+    </view>
+  </view>
+
+  <!-- AI 可拖动悬浮按钮 -->
+  <movable-area class="ai-fab-area">
+    <movable-view
+      class="ai-fab"
+      direction="all"
+      x="{{aiFabX}}"
+      y="{{aiFabY}}"
+      bindtap="goToAiChat"
+      bindchange="onAiFabChange"
+      inertia
+      out-of-bounds
+    >
+      <text class="ai-fab-icon">✦</text>
+    </movable-view>
+  </movable-area>
+</view>

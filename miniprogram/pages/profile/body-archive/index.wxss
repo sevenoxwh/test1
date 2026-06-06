@@ -1,0 +1,252 @@
+.page-container {
+  padding: 32rpx;
+  min-height: 100vh;
+  box-sizing: border-box;
+  background: #F9FAFB;
+}
+
+/* 通用卡片样式 */
+.card {
+  background: #FFFFFF;
+  border-radius: 24rpx;
+  padding: 32rpx;
+  margin-bottom: 32rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 24rpx;
+  display: block;
+}
+
+/* 汇总卡片 */
+.summary-card {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.summary-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.summary-value {
+  font-size: 40rpx;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 8rpx;
+}
+
+.summary-label {
+  font-size: 24rpx;
+  color: #9CA3AF;
+}
+
+.summary-divider {
+  width: 2rpx;
+  height: 60rpx;
+  background: #F3F4F6;
+}
+
+/* 身体数据录入 */
+.body-data-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 24rpx;
+}
+
+.body-data-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.data-label {
+  font-size: 26rpx;
+  color: #6B7280;
+  margin-bottom: 12rpx;
+}
+
+.data-input {
+  width: 100%;
+  height: 72rpx;
+  padding: 0 16rpx;
+  border: 2rpx solid #E5E7EB;
+  border-radius: 12rpx;
+  font-size: 30rpx;
+  color: #111827;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.data-picker {
+  width: 100%;
+  height: 72rpx;
+  line-height: 72rpx;
+  padding: 0 16rpx;
+  border: 2rpx solid #E5E7EB;
+  border-radius: 12rpx;
+  font-size: 30rpx;
+  color: #111827;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.picker-value {
+  color: #111827;
+}
+
+/* BMI 卡片 */
+.bmi-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48rpx;
+}
+
+.bmi-value {
+  font-size: 64rpx;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 8rpx;
+}
+
+.bmi-status {
+  font-size: 28rpx;
+  color: #10B981;
+  margin-bottom: 8rpx;
+  font-weight: 500;
+}
+
+.bmi-label {
+  font-size: 24rpx;
+  color: #9CA3AF;
+}
+
+/* 图表区域 */
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24rpx;
+}
+
+.chart-range {
+  display: flex;
+  gap: 16rpx;
+}
+
+.range-item {
+  font-size: 26rpx;
+  color: #9CA3AF;
+  padding: 8rpx 20rpx;
+  border-radius: 8rpx;
+}
+
+.range-item.active {
+  color: #111827;
+  background: #F3F4F6;
+  font-weight: 500;
+}
+
+.weight-chart {
+  width: 100%;
+}
+
+.chart-empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+.empty-text {
+  font-size: 28rpx;
+  color: #9CA3AF;
+}
+
+/* 记录体重按钮 */
+.record-btn {
+  width: 100%;
+  height: 96rpx;
+  line-height: 96rpx;
+  text-align: center;
+  background: #111827;
+  color: #FFFFFF;
+  font-size: 32rpx;
+  font-weight: 500;
+  border-radius: 48rpx;
+  margin-top: 32rpx;
+}
+
+/* 弹窗 */
+.modal-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  width: 80%;
+  background: #FFFFFF;
+  border-radius: 24rpx;
+  padding: 48rpx;
+}
+
+.modal-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #111827;
+  text-align: center;
+  margin-bottom: 32rpx;
+  display: block;
+}
+
+.modal-input {
+  width: 100%;
+  height: 88rpx;
+  padding: 0 24rpx;
+  border: 2rpx solid #E5E7EB;
+  border-radius: 12rpx;
+  font-size: 32rpx;
+  color: #111827;
+  text-align: center;
+  margin-bottom: 32rpx;
+  box-sizing: border-box;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 24rpx;
+}
+
+.modal-btn {
+  flex: 1;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  border-radius: 12rpx;
+  font-size: 30rpx;
+}
+
+.modal-btn.cancel {
+  background: #F3F4F6;
+  color: #6B7280;
+}
+
+.modal-btn.confirm {
+  background: #111827;
+  color: #FFFFFF;
+}

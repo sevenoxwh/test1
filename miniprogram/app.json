@@ -1,0 +1,58 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/checkin/index",
+    "pages/profile/index",
+    "pages/profile/body-archive/index",
+    "pages/profile/edit-profile/index",
+    "pages/discover/index",
+    "pages/discover/recipe-detail/index",
+    "pages/ai-chat/index",
+    "pages/settings/index",
+    "pages/poster/index",
+    "pages/stats/index"
+  ],
+  "tabBar": {
+    "color": "#6B7280",
+    "selectedColor": "#111827",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/icons/home.png",
+        "selectedIconPath": "images/icons/home-active.png"
+      },
+      {
+        "pagePath": "pages/discover/index",
+        "text": "发现",
+        "iconPath": "images/icons/goods.png",
+        "selectedIconPath": "images/icons/goods-active.png"
+      },
+      {
+        "pagePath": "pages/profile/index",
+        "text": "我的",
+        "iconPath": "images/icons/usercenter.png",
+        "selectedIconPath": "images/icons/usercenter-active.png"
+      }
+    ]
+  },
+  "window": {
+    "backgroundColor": "#F9FAFB",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#F9FAFB",
+    "navigationBarTitleText": "FitCheck",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2",
+  "lazyCodeLoading": "requiredComponents",
+  "requiredBackgroundModes": [],
+  "cloud": true,
+  "permission": {
+    "scope.writePhotosAlbum": {
+      "desc": "用于保存分享海报到相册"
+    }
+  }
+}

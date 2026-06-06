@@ -1,0 +1,86 @@
+<view class="page-container">
+  <!-- 运动类型选择 -->
+  <view class="section">
+    <text class="section-title">选择运动类型</text>
+    <view class="sport-tags">
+      <view 
+        wx:for="{{sportTags}}" 
+        wx:key="name"
+        class="sport-tag {{selectedSport === item.name ? 'active' : ''}}"
+        bindtap="selectSport"
+        data-sport="{{item.name}}"
+      >
+        {{item.name}}
+      </view>
+    </view>
+    <!-- 自定义运动类型输入 -->
+    <view class="custom-sport-input-wrapper">
+      <input
+        class="custom-sport-input"
+        placeholder="输入自定义运动类型"
+        value="{{customSport}}"
+        bindinput="onCustomSportInput"
+        bindconfirm="addCustomSport"
+        confirm-type="done"
+      />
+      <view class="add-sport-btn {{customSport ? '' : 'disabled'}}" bindtap="addCustomSport">添加</view>
+    </view>
+  </view>
+
+  <!-- 时长选择 -->
+  <view class="section">
+    <text class="section-title">运动时长</text>
+    <view class="duration-display">
+      <text class="duration-value">{{duration}}</text>
+      <text class="duration-unit">分钟</text>
+    </view>
+    <slider 
+      class="duration-slider"
+      min="5" 
+      max="180" 
+      step="5" 
+      value="{{duration}}"
+      block-size="24"
+      activeColor="#111827"
+      backgroundColor="#E5E7EB"
+      bindchanging="onDurationChanging"
+      bindchange="onDurationChange"
+    />
+    <view class="duration-labels">
+      <text>5</text>
+      <text>30</text>
+      <text>60</text>
+      <text>90</text>
+      <text>120</text>
+      <text>180</text>
+    </view>
+  </view>
+
+  <!-- 预计消耗 -->
+  <view class="calories-preview" wx:if="{{selectedSport}}">
+    <text class="calories-label">预计消耗</text>
+    <text class="calories-value">{{calories}} 千卡</text>
+  </view>
+
+  <!-- 照片上传 -->
+  <view class="section">
+    <text class="section-title">上传照片（可选）</text>
+    <view class="photo-upload" bindtap="choosePhoto">
+      <image wx:if="{{photoUrl}}" src="{{photoUrl}}" class="photo-preview" mode="aspectFill"/>
+      <view wx:else class="photo-placeholder">
+        <text class="photo-icon">📷</text>
+        <text class="photo-text">点击上传照片</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 确认按钮 -->
+  <view class="submit-btn-wrapper safe-area-bottom">
+    <view 
+      class="submit-btn {{!selectedSport ? 'disabled' : ''}}"
+      bindtap="onSubmit"
+    >
+      确认打卡
+    </view>
+  </view>
+</view>

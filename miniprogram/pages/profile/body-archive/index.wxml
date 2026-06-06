@@ -1,0 +1,89 @@
+<view class="page-container">
+  <!-- 身体数据汇总卡片 -->
+  <view class="summary-card card">
+    <view class="summary-item" bindtap="showTargetWeightModal">
+      <text class="summary-value">{{initialWeight || '--'}}</text>
+      <text class="summary-label">初始体重 (kg)</text>
+    </view>
+    <view class="summary-divider"/>
+    <view class="summary-item">
+      <text class="summary-value">{{currentWeight || '--'}}</text>
+      <text class="summary-label">当前体重 (kg)</text>
+    </view>
+    <view class="summary-divider"/>
+    <view class="summary-item" bindtap="showTargetWeightModal">
+      <text class="summary-value">{{targetWeight || '--'}}</text>
+      <text class="summary-label">目标体重 (kg)</text>
+    </view>
+  </view>
+
+  <!-- 身体数据录入 -->
+  <view class="body-data-section card">
+    <text class="section-title">身体数据</text>
+    <view class="body-data-grid">
+      <view class="body-data-item">
+        <text class="data-label">身高 (cm)</text>
+        <input class="data-input" type="digit" placeholder="--" value="{{height || ''}}" bindblur="onHeightBlur"/>
+      </view>
+      <view class="body-data-item">
+        <text class="data-label">年龄</text>
+        <input class="data-input" type="number" placeholder="--" value="{{age || ''}}" bindblur="onAgeBlur"/>
+      </view>
+      <view class="body-data-item">
+        <text class="data-label">性别</text>
+        <picker class="data-picker" bindchange="onGenderChange" value="{{genderIndex}}" range="{{genderOptions}}">
+          <view class="picker-value">{{genderOptions[genderIndex] || '请选择'}}</view>
+        </picker>
+      </view>
+    </view>
+  </view>
+
+  <!-- BMI 显示 -->
+  <view class="bmi-card card" wx:if="{{bmi}}">
+    <view class="bmi-value">{{bmi.value}}</view>
+    <view class="bmi-status">{{bmi.status}}</view>
+    <view class="bmi-label">BMI 指数</view>
+  </view>
+
+  <!-- 体重趋势图 -->
+  <view class="chart-section card">
+    <view class="chart-header">
+      <text class="section-title">体重趋势</text>
+      <view class="chart-range">
+        <text class="range-item {{chartRange === 7 ? 'active' : ''}}" bindtap="switchRange" data-range="7">7天</text>
+        <text class="range-item {{chartRange === 30 ? 'active' : ''}}" bindtap="switchRange" data-range="30">30天</text>
+      </view>
+    </view>
+    <canvas type="2d" id="weightChart" class="weight-chart" style="width: {{chartWidth}}px; height: 200px;"/>
+    <view class="chart-empty" wx:if="{{weightRecords.length === 0}}">
+      <text class="empty-text">暂无体重记录</text>
+    </view>
+  </view>
+
+  <!-- 记录体重按钮 -->
+  <view class="record-btn" bindtap="showRecordModal">记录体重</view>
+
+  <!-- 记录体重弹窗 -->
+  <view class="modal-mask" wx:if="{{showModal}}" bindtap="hideRecordModal">
+    <view class="modal-content" catchtap="preventBubble">
+      <text class="modal-title">记录今日体重</text>
+      <input class="modal-input" type="digit" placeholder="输入体重 (kg)" value="{{inputWeight}}" bindinput="onWeightInput"/>
+      <view class="modal-actions">
+        <view class="modal-btn cancel" bindtap="hideRecordModal">取消</view>
+        <view class="modal-btn confirm" bindtap="saveWeight">保存</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 设置目标体重弹窗 -->
+  <view class="modal-mask" wx:if="{{showTargetModal}}" bindtap="hideTargetWeightModal">
+    <view class="modal-content" catchtap="preventBubble">
+      <text class="modal-title">设置目标体重</text>
+      <input class="modal-input" type="digit" placeholder="输入目标体重 (kg)" value="{{targetWeightInput}}" bindinput="onTargetWeightInput"/>
+      <view class="modal-actions">
+        <view class="modal-btn cancel" bindtap="hideTargetWeightModal">取消</view>
+        <view class="modal-btn confirm" bindtap="saveTargetWeight">保存</view>
+      </view>
+    </view>
+  </view>
+</view>

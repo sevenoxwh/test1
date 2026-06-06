@@ -1,0 +1,89 @@
+<view class="page-container">
+  <!-- 消息列表 -->
+  <scroll-view 
+    class="chat-list"
+    scroll-y
+    scroll-into-view="{{scrollToView}}"
+    enhanced
+    show-scrollbar="{{false}}"
+  >
+    <view class="chat-messages">
+      <!-- 欢迎消息 -->
+      <view wx:if="{{messages.length === 0}}" class="welcome-message">
+        <text class="welcome-title">你好，我是 FitCoach</text>
+        <text class="welcome-desc">你的专属 AI 健身教练，随时为你解答训练、饮食相关的问题。</text>
+      </view>
+
+      <!-- 消息气泡 -->
+      <view 
+        wx:for="{{messages}}" 
+        wx:key="timestamp"
+        id="msg-{{index}}"
+        class="message-row {{item.role === 'user' ? 'user' : 'assistant'}}"
+      >
+        <view class="message-bubble">
+          <view wx:if="{{item.metadata && item.metadata.referencedData}}" class="message-reference">
+            <text class="reference-text">根据你的{{item.metadata.referencedData === 'weight' ? '体重记录' : item.metadata.referencedData === 'checkin' ? '打卡记录' : '健身目标'}}</text>
+          </view>
+          <text class="message-content">{{item.content}}</text>
+        </view>
+        <text class="message-time">{{formatTime(item.timestamp)}}</text>
+      </view>
+
+      <!-- AI 思考中 -->
+      <view wx:if="{{isThinking}}" class="message-row assistant">
+        <view class="message-bubble thinking">
+          <view class="thinking-dots">
+            <view class="dot"></view>
+            <view class="dot"></view>
+            <view class="dot"></view>
+          </view>
+          <text class="thinking-text">FitCoach 正在思考...</text>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- 快捷标签栏 -->
+  <scroll-view 
+    class="quick-tags-bar"
+    scroll-x
+    enhanced
+    show-scrollbar="{{false}}"
+    wx:if="{{!isThinking}}"
+  >
+    <view class="quick-tags">
+      <view 
+        wx:for="{{quickTags}}" 
+        wx:key="label"
+        class="quick-tag"
+        bindtap="sendQuickMessage"
+        data-query="{{item.query}}"
+      >
+        {{item.label}}
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- 底部输入栏 -->
+  <view class="input-bar safe-area-bottom">
+    <view class="input-wrapper">
+      <textarea 
+        class="message-input"
+        placeholder="输入你的问题..."
+        value="{{inputMessage}}"
+        bindinput="onInputChange"
+        auto-height
+        maxlength="500"
+        confirm-type="send"
+        bindconfirm="sendMessage"
+      />
+    </view>
+    <view 
+      class="send-btn {{inputMessage.trim() ? 'active' : ''}}"
+      bindtap="sendMessage"
+    >
+      <text class="send-icon">↑</text>
+    </view>
+  </view>
+</view>

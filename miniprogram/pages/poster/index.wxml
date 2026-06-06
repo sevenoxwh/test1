@@ -1,0 +1,14 @@
+<view class="page-container">
+  <view class="poster-wrapper">
+    <canvas type="2d" id="posterCanvas" class="poster-canvas" style="width: {{canvasWidth}}px; height: {{canvasHeight}}px;"></canvas>
+  </view>
+
+  <view class="action-btns">
+    <view class="action-btn primary" bindtap="savePoster">
+      <text>保存到相册</text>
+    </view>
+    <view class="action-btn" bindtap="sharePoster">
+      <text>分享给好友</text>
+    </view>
+  </view>
+</view>

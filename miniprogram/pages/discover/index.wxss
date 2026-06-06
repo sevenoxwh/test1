@@ -1,0 +1,203 @@
+.page-container {
+  padding: var(--spacing-md);
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* AI 教练卡片 */
+.ai-card {
+  background: var(--color-primary);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.ai-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.ai-card-title {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: var(--color-surface);
+}
+
+.ai-card-desc {
+  font-size: 26rpx;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.ai-card-icon {
+  font-size: 48rpx;
+  color: var(--color-surface);
+}
+
+/* 食谱区域 */
+.section {
+  margin-bottom: var(--spacing-lg);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.category-tabs {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.category-tab {
+  font-size: 24rpx;
+  color: var(--color-text-secondary);
+  padding: 8rpx 16rpx;
+  border-radius: var(--radius-pill);
+}
+
+.category-tab.active {
+  background: var(--color-primary);
+  color: var(--color-surface);
+}
+
+.recipe-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.recipe-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+}
+
+.recipe-image {
+  width: 200rpx;
+  height: 160rpx;
+  flex-shrink: 0;
+}
+
+.recipe-image-placeholder {
+  width: 200rpx;
+  height: 160rpx;
+  background: var(--color-tag-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.recipe-image-icon {
+  font-size: 48rpx;
+}
+
+.recipe-info {
+  flex: 1;
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.recipe-name {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 8rpx;
+}
+
+.recipe-calories {
+  font-size: 26rpx;
+  color: var(--color-secondary);
+}
+
+/* 搜索区域 */
+.search-box {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.search-input {
+  flex: 1;
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  height: 80rpx;
+  padding: 0 var(--spacing-md);
+  font-size: 28rpx;
+  border: 1rpx solid var(--color-border);
+}
+
+.search-btn {
+  background: var(--color-primary);
+  color: var(--color-surface);
+  font-size: 28rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  padding: 0 var(--spacing-md);
+  border-radius: var(--radius-md);
+}
+
+.food-list {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.food-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md);
+  border-bottom: 1rpx solid var(--color-border);
+}
+
+.food-item:last-child {
+  border-bottom: none;
+}
+
+.food-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4rpx;
+}
+
+.food-name {
+  font-size: 30rpx;
+  color: var(--color-text-primary);
+}
+
+.food-portion {
+  font-size: 24rpx;
+  color: var(--color-text-secondary);
+}
+
+.food-calories {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: var(--color-secondary);
+}
+
+.empty-state {
+  text-align: center;
+  padding: var(--spacing-xl);
+}
+
+.empty-text {
+  font-size: 28rpx;
+  color: var(--color-text-disabled);
+}

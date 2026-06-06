@@ -1,0 +1,186 @@
+.page-container {
+  padding: var(--spacing-md);
+  padding-bottom: 160rpx;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.section {
+  margin-bottom: var(--spacing-lg);
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  display: block;
+  margin-bottom: var(--spacing-md);
+}
+
+/* 运动标签 */
+.sport-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.sport-tag {
+  background: var(--color-tag-bg);
+  color: var(--color-tag-text);
+  font-size: 28rpx;
+  border-radius: var(--radius-sm);
+  padding: 16rpx 32rpx;
+  transition: all 200ms ease;
+}
+
+.sport-tag.active {
+  background: var(--color-primary);
+  color: var(--color-surface);
+}
+
+/* 自定义运动类型输入 */
+.custom-sport-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-md);
+}
+
+.custom-sport-input {
+  flex: 1;
+  height: 72rpx;
+  background: var(--color-tag-bg);
+  border-radius: var(--radius-sm);
+  padding: 0 var(--spacing-md);
+  font-size: 28rpx;
+  color: var(--color-text-primary);
+}
+
+.add-sport-btn {
+  background: var(--color-primary);
+  color: var(--color-surface);
+  font-size: 28rpx;
+  padding: 16rpx 32rpx;
+  border-radius: var(--radius-sm);
+}
+
+.add-sport-btn.disabled {
+  background: var(--color-text-disabled);
+  color: var(--color-surface);
+}
+
+/* 时长选择 */
+.duration-display {
+  text-align: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.duration-value {
+  font-size: 72rpx;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  letter-spacing: -2rpx;
+}
+
+.duration-unit {
+  font-size: 28rpx;
+  color: var(--color-text-secondary);
+  margin-left: 8rpx;
+}
+
+.duration-slider {
+  margin: 0;
+}
+
+.duration-labels {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 12rpx;
+  font-size: 24rpx;
+  color: var(--color-text-secondary);
+}
+
+/* 卡路里预览 */
+.calories-preview {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.calories-label {
+  font-size: 28rpx;
+  color: var(--color-text-secondary);
+}
+
+.calories-value {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: var(--color-secondary);
+}
+
+/* 照片上传 */
+.photo-upload {
+  width: 100%;
+  height: 300rpx;
+  background: var(--color-tag-bg);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.photo-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.photo-icon {
+  font-size: 48rpx;
+}
+
+.photo-text {
+  font-size: 26rpx;
+  color: var(--color-text-secondary);
+}
+
+.photo-preview {
+  width: 100%;
+  height: 100%;
+}
+
+/* 提交按钮 */
+.submit-btn-wrapper {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--spacing-md);
+  background: var(--color-surface);
+  border-top: 1rpx solid var(--color-border);
+}
+
+.submit-btn {
+  background: var(--color-primary);
+  color: var(--color-surface);
+  font-size: 32rpx;
+  font-weight: 600;
+  height: 96rpx;
+  line-height: 96rpx;
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+.submit-btn:active {
+  background: #374151;
+}
+
+.submit-btn.disabled {
+  background: var(--color-text-disabled);
+}

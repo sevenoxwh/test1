@@ -1,0 +1,51 @@
+<view class="page-container">
+  <image wx:if="{{recipe.imageUrl}}" src="{{recipe.imageUrl}}" class="recipe-image" mode="aspectFill"/>
+  <view wx:else class="recipe-image-placeholder">
+    <text class="recipe-image-icon">🍽️</text>
+  </view>
+
+  <view class="recipe-header">
+    <text class="recipe-name">{{recipe.name}}</text>
+    <view class="recipe-meta">
+      <text class="recipe-category">{{recipe.category}}</text>
+      <text class="recipe-calories">{{recipe.calories}} 千卡</text>
+      <text class="recipe-time" wx:if="{{recipe.cookTime}}">⏱ {{recipe.cookTime}}</text>
+    </view>
+  </view>
+
+  <view class="recipe-actions">
+    <view class="action-btn {{isLiked ? 'active' : ''}}" bindtap="toggleLike">
+      <text class="action-icon">♥</text>
+      <text class="action-text">{{isLiked ? '已点赞' : '点赞'}}</text>
+    </view>
+    <view class="action-btn {{isFavorited ? 'active' : ''}}" bindtap="toggleFavorite">
+      <text class="action-icon">★</text>
+      <text class="action-text">{{isFavorited ? '已收藏' : '收藏'}}</text>
+    </view>
+  </view>
+
+  <view class="recipe-section">
+    <text class="section-title">食材</text>
+    <view class="ingredient-list">
+      <view wx:for="{{recipe.ingredients}}" wx:key="*this" class="ingredient-item">
+        <text class="ingredient-dot">•</text>
+        <text class="ingredient-text">{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="recipe-section">
+    <text class="section-title">制作步骤</text>
+    <view class="step-list">
+      <view wx:for="{{recipe.steps}}" wx:key="*this" class="step-item">
+        <text class="step-number">{{index + 1}}</text>
+        <text class="step-text">{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="recipe-section" wx:if="{{recipe.tips}}">
+    <text class="section-title">小贴士</text>
+    <text class="tips-text">{{recipe.tips}}</text>
+  </view>
+</view>

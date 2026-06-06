@@ -1,0 +1,29 @@
+﻿# 微信小程序开发工具自动生成文件
+node_modules/
+miniprogram_npm/
+.eslintrc.js
+
+# 微信小程序私有配置（含敏感信息）
+project.private.config.json
+
+# 云函数依赖（由各云函数独立安装）
+cloudfunctions/**/node_modules/
+cloudfunctions/**/package-lock.json
+
+# 日志文件
+*.log
+npm-debug.log*
+
+# 操作系统文件
+.DS_Store
+Thumbs.db
+
+# IDE/编辑器配置
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# 临时文件
+*.tmp
+*.temp

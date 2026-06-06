@@ -1,0 +1,76 @@
+<view class="page-container">
+  <!-- AI 教练入口卡片 -->
+  <view class="ai-card" bindtap="goToAiChat">
+    <view class="ai-card-content">
+      <text class="ai-card-title">FitCoach AI 教练</text>
+      <text class="ai-card-desc">随时解答你的健身疑问</text>
+    </view>
+    <text class="ai-card-icon">✦</text>
+  </view>
+
+  <!-- 食谱推荐 -->
+  <view class="section">
+    <view class="section-header">
+      <text class="section-title">今日食谱推荐</text>
+      <view class="category-tabs">
+        <text 
+          wx:for="{{categories}}" 
+          wx:key="*this"
+          class="category-tab {{currentCategory === item ? 'active' : ''}}"
+          bindtap="switchCategory"
+          data-category="{{item}}"
+        >{{item}}</text>
+      </view>
+    </view>
+    <view class="recipe-list">
+      <view 
+        wx:for="{{recipes}}" 
+        wx:key="name"
+        class="recipe-card"
+        bindtap="goToRecipeDetail"
+        data-recipe="{{item}}"
+      >
+        <image wx:if="{{item.imageUrl}}" src="{{item.imageUrl}}" class="recipe-image" mode="aspectFill"/>
+        <view wx:else class="recipe-image-placeholder">
+          <text class="recipe-image-icon">🍽️</text>
+        </view>
+        <view class="recipe-info">
+          <text class="recipe-name">{{item.name}}</text>
+          <text class="recipe-calories">{{item.calories}} 千卡 · {{item.cookTime || '30分钟'}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 热量查询 -->
+  <view class="section">
+    <text class="section-title">热量查询</text>
+    <view class="search-box">
+      <input 
+        class="search-input"
+        placeholder="搜索食物名称（如：米饭、鸡蛋）"
+        value="{{searchKeyword}}"
+        bindinput="onSearchInput"
+        confirm-type="search"
+        bindconfirm="onSearch"
+      />
+      <text class="search-btn" bindtap="onSearch">搜索</text>
+    </view>
+    <view class="food-list" wx:if="{{searchResults.length > 0}}">
+      <view 
+        wx:for="{{searchResults}}" 
+        wx:key="name"
+        class="food-item"
+      >
+        <view class="food-info">
+          <text class="food-name">{{item.name}}</text>
+          <text class="food-portion">{{item.portion}}</text>
+        </view>
+        <text class="food-calories">{{item.calories}} 千卡/100g</text>
+      </view>
+    </view>
+    <view class="empty-state" wx:if="{{searched && searchResults.length === 0}}">
+      <text class="empty-text">未找到相关食物</text>
+    </view>
+  </view>
+</view>

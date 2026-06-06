@@ -1,0 +1,116 @@
+.page-container {
+  padding: var(--spacing-md);
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* 总览卡片 */
+.overview-card {
+  display: flex;
+  justify-content: space-around;
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+.overview-item {
+  text-align: center;
+}
+
+.overview-value {
+  font-size: 48rpx;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  display: block;
+  margin-bottom: 8rpx;
+}
+
+.overview-label {
+  font-size: 24rpx;
+  color: var(--color-text-secondary);
+}
+
+/* 运动类型分布 */
+.section {
+  margin-bottom: var(--spacing-lg);
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  display: block;
+  margin-bottom: var(--spacing-md);
+}
+
+.sport-distribution {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.sport-stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.sport-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sport-name {
+  font-size: 28rpx;
+  color: var(--color-text-primary);
+}
+
+.sport-count {
+  font-size: 24rpx;
+  color: var(--color-text-secondary);
+}
+
+.progress-bar {
+  height: 12rpx;
+  background: var(--color-tag-bg);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--color-primary);
+  border-radius: var(--radius-pill);
+  transition: width 500ms ease;
+}
+
+/* 最近7天 */
+.week-calendar {
+  display: flex;
+  justify-content: space-around;
+}
+
+.week-day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.week-day-name {
+  font-size: 24rpx;
+  color: var(--color-text-secondary);
+}
+
+.check-dot {
+  width: 32rpx;
+  height: 32rpx;
+  border-radius: 50%;
+  background: var(--color-tag-bg);
+  border: 2rpx solid var(--color-border);
+}
+
+.check-dot.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}

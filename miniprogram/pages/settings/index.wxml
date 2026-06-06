@@ -1,0 +1,48 @@
+<view class="page-container">
+  <!-- 用户目标设置 -->
+  <view class="settings-group">
+    <text class="group-title">健身目标</text>
+    <view class="setting-item">
+      <text class="setting-label">目标体重</text>
+      <view class="setting-value" bindtap="editTargetWeight">
+        <text>{{user.targetWeight ? user.targetWeight + ' kg' : '未设置'}}</text>
+        <text class="setting-arrow">›</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 提醒设置 -->
+  <view class="settings-group">
+    <text class="group-title">提醒</text>
+    <view class="setting-item">
+      <text class="setting-label">打卡提醒时间</text>
+      <picker mode="time" value="{{user.reminderTime || '18:00'}}" bindchange="onReminderChange">
+        <view class="setting-value">
+          <text>{{user.reminderTime || '18:00'}}</text>
+          <text class="setting-arrow">›</text>
+        </view>
+      </picker>
+    </view>
+  </view>
+
+  <!-- 数据管理 -->
+  <view class="settings-group">
+    <text class="group-title">数据管理</text>
+    <view class="setting-item" bindtap="clearAllData">
+      <text class="setting-label" style="color: var(--color-error)">清除所有数据</text>
+    </view>
+  </view>
+
+  <!-- 关于 -->
+  <view class="settings-group">
+    <text class="group-title">关于</text>
+    <view class="setting-item">
+      <text class="setting-label">版本号</text>
+      <text class="setting-value-text">v1.0.0</text>
+    </view>
+    <view class="setting-item" bindtap="showPrivacy">
+      <text class="setting-label">隐私协议</text>
+      <text class="setting-arrow">›</text>
+    </view>
+  </view>
+</view>
